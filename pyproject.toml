@@ -16,3 +16,6 @@ dke = "dke.cli:app"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[tool.setuptools]
+packages = ["dke", "skills"]
