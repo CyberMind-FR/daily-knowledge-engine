@@ -10,6 +10,7 @@ Produire chaque jour une base de connaissances vérifiée, puis la décliner en 
 - "Version BD quotidienne"
 - "Poster Les Cimes"
 - "Café Quantique du jour"
+- "Génère l'image finale"
 
 ## Chaîne obligatoire
 
@@ -20,6 +21,7 @@ Produire chaque jour une base de connaissances vérifiée, puis la décliner en 
 5. Générer un objet DailyKnowledgeObject.
 6. Adapter le ton selon la publication.
 7. Générer Markdown, HTML et prompt image.
+8. Optionnellement, appeler OpenAI Images pour produire le poster PNG final.
 
 ## Règle cardinale
 
@@ -44,3 +46,25 @@ Un fait est publiable seulement si :
 ## Style Les Cimes de Maurienne
 
 Revue de presse BD alpine, bistrot de montagne, humour de comptoir, personnages originaux, ton populaire mais rigoureux.
+
+## Génération image
+
+La génération d'image est strictement en bout de chaîne. Elle ne doit jamais créer de nouveaux faits. Elle reçoit seulement le prompt construit à partir des faits publiables.
+
+Commande locale :
+
+```bash
+python -m dke.cli --publication les-cimes --out dist --image
+```
+
+Variables requises :
+
+```text
+OPENAI_API_KEY
+```
+
+Mode sans appel API :
+
+```bash
+python -m dke.cli --publication les-cimes --out dist --image-dry-run
+```

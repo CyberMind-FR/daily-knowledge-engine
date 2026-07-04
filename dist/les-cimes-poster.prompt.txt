@@ -1,0 +1,9 @@
+Créer un poster BD quotidien en français intitulé LES CIMES DE MAURIENNE, daté 2026-07-04.
+Style : revue de presse illustrée de bistrot alpin, personnages originaux, croquis simplifié, papier ivoire, encre noire, couleurs limitées, humour de comptoir.
+Ne pas inventer d'information. Utiliser uniquement ces faits vérifiés ou contextuels :
+- france: Fortes chaleurs — La rubrique météo doit être confirmée par une source météo du jour avant publication.
+- sport: Tour de France 2026 — Le Grand Départ 2026 est prévu à Barcelone. Ne publier l'étape du jour qu'après vérification officielle du parcours daté.
+- lune: Phase lunaire — La phase de la Lune doit provenir d'un calendrier astronomique daté.
+- histoire: 4 juillet — Date associée notamment à la Déclaration d'indépendance des États-Unis en 1776.
+- comptoir: Dessin du comptoir — Tu crois qu'on vit une époque historique ? Oui... mais elle manque encore de recul.
+Inclure des cartouches : actualité, météo, lune, histoire du jour, sport, science/technologie/santé si disponibles, dessin du comptoir, mot du patron.

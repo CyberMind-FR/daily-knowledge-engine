@@ -1,0 +1,37 @@
+name: Daily Les Cimes
+
+on:
+  workflow_dispatch:
+    inputs:
+      generate_image:
+        description: "Generate final poster image with OpenAI"
+        type: boolean
+        default: false
+  schedule:
+    - cron: "15 5 * * *" # 07:15 Europe/Paris during summer time
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: pip install -e ".[dev,image]"
+      - name: Test
+        run: pytest
+      - name: Generate editorial files
+        run: python -m dke.cli --publication les-cimes --out dist --image-dry-run
+      - name: Generate OpenAI poster image
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.generate_image == true }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python -m dke.cli --publication les-cimes --out dist --image --image-size 1024x1536 --image-quality medium
+      - uses: actions/upload-artifact@v4
+        with:
+          name: les-cimes-daily
+          path: dist/
